@@ -54,7 +54,10 @@ body {
     border: 5px solid rgb(146, 120, 87);
 }
 .grids {
-    height: 50px;
-    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    flex-grow: 1;
+    flex-shrink: 0;
     border: 2px solid red;
+    
 }
