@@ -4,6 +4,10 @@ createDivs(inputNumber)
 
 console.log(inputNumber)
 
+const pickedColor = document.querySelector(".color-picker").value;
+
+
+console.log(pickedColor)
 
 const resizeButton = document.querySelector(".resize-btn");
 resizeButton.addEventListener("click", () => {
@@ -16,10 +20,6 @@ function resizeBtn() {
  createDivs(x);
  }
 
-const clearAll = document.querySelector(".clear-btn");
-clearAll.addEventListener("click", () => {
-    grid
-})
 
 function createDivs(num){
     let totalDivs = num * num; 
@@ -38,7 +38,8 @@ function createDivs(num){
 });
     grid.addEventListener('pointerenter', () => {
     if (isMouseDown) {
-      grid.style.backgroundColor = "#2ecc71";
+     grid.style.backgroundColor = `${pickedColor}`;
+       
     }
     });
     window.addEventListener('pointerup', () => {
@@ -54,6 +55,5 @@ function createDivs(num){
 
 })
 }
-
 }
 
