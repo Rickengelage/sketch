@@ -1,16 +1,14 @@
 const inputNumber = document.querySelector(".grid-size").value = "16";
 const gridContainer = document.querySelector(".grid-container");
-
-
+createDivs(inputNumber)
 
 console.log(inputNumber)
 const resizeButton = document.querySelector(".resize-btn");
 resizeButton.addEventListener("click", () => {
     gridContainer.innerHTML = "";
     resizeBtn()
-
-
 })
+
 function resizeBtn() {
   let x = document.querySelector(".grid-size").value;
  createDivs(x);

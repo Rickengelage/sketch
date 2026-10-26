@@ -54,6 +54,6 @@ body {
     border: 5px solid rgb(146, 120, 87);
 }
 .grids {
-    border: 1px solid red;
+    border: 1px solid rgb(119, 118, 118);
     box-sizing: border-box;
 }
