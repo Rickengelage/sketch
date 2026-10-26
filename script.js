@@ -3,6 +3,8 @@ const gridContainer = document.querySelector(".grid-container");
 createDivs(inputNumber)
 
 console.log(inputNumber)
+
+
 const resizeButton = document.querySelector(".resize-btn");
 resizeButton.addEventListener("click", () => {
     gridContainer.innerHTML = "";
@@ -14,6 +16,10 @@ function resizeBtn() {
  createDivs(x);
  }
 
+const clearAll = document.querySelector(".clear-btn");
+clearAll.addEventListener("click", () => {
+    grid
+})
 
 function createDivs(num){
     let totalDivs = num * num; 
@@ -23,6 +29,7 @@ function createDivs(num){
     const grid = document.createElement("div");
     grid.classList.add("grids");
     gridContainer.appendChild(grid)
+    grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
     grid.style.width = `${divSize}px`
      grid.style.height = `${divSize}px`
     let isMouseDown = false;
@@ -37,9 +44,16 @@ function createDivs(num){
     window.addEventListener('pointerup', () => {
     isMouseDown = false;
 });
-grid.addEventListener("click", () => {
+    grid.addEventListener("click", () => {
     grid.style.backgroundColor = "#2ecc71";
 })
+    const clearAll = document.querySelector(".clear-btn");
+    clearAll.addEventListener("click", () => {
+    grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+
+
+})
 }
+
 }
 
