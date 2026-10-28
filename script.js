@@ -23,6 +23,11 @@ function resizeBtn() {
  //function that generates the divs in the grid container
  //and also changes its color when pointer is down
  //color that is set is based on the color picker's value
+ 
+ function playSound(){
+    const audioFile = document.getElementById('audio')
+    audioFile.play();
+ }
 function createDivs(num){
     let totalDivs = num * num; 
     let divSize = 960 / num;  
@@ -41,6 +46,7 @@ function createDivs(num){
     grid.addEventListener('pointerenter', () => {
     if (isMouseDown) {
         grid.style.backgroundColor = changeColor();
+        playSound()
         if(clickedOn == true){
          grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";}
      }});
@@ -50,6 +56,7 @@ function createDivs(num){
 });
     grid.addEventListener("click", () => {
     grid.style.backgroundColor = changeColor();
+    playSound()
     if(clickedOn == true){
     grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
     
