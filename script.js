@@ -41,12 +41,20 @@ function createDivs(num){
     grid.addEventListener('pointerenter', () => {
     if (isMouseDown) {
         grid.style.backgroundColor = changeColor();
- }});
+        if(clickedOn == true){
+         grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";}
+     }});
+
     window.addEventListener('pointerup', () => {
     isMouseDown = false;
 });
     grid.addEventListener("click", () => {
     grid.style.backgroundColor = changeColor();
+    if(clickedOn == true){
+    grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    
+
+    }
 })
     const clearAll = document.querySelector(".clear-btn");
     clearAll.addEventListener("click", () => {
@@ -54,4 +62,24 @@ function createDivs(num){
 })
 }
 }
+// code that makes the background color of div grids be set to default when button is active
+const eraserButton= document.querySelector(".eraser-btn");
+let clickedOn = false;
+let clickCount = 0;
+    eraserButton.addEventListener("click",() => {
+    clickCount++
+    if(clickCount == 1){
+    eraserButton.style.border = "2px solid red";
+    eraserButton.style.backgroundColor = "rgba(255, 0, 0, 0.52)";
+    clickedOn = true;
+        console.log(clickCount)  
+    }else if (clickCount == 2){
+        clickCount = 0;
+    eraserButton.style.backgroundColor = "bisque";
+    eraserButton.style.border = "2px solid rgb(146, 120, 87)";
 
+    clickedOn = false;
+        console.log(clickCount)
+    }
+}
+);
