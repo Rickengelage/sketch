@@ -19,15 +19,15 @@ function resizeBtn() {
  function changeColor() {
      const picker = document.querySelector(".color-picker").value;
    return picker;
- }
- //function that generates the divs in the grid container
- //and also changes its color when pointer is down
- //color that is set is based on the color picker's value
- 
+ } 
+ //function that plays audio file
  function playSound(){
     const audioFile = document.getElementById('audio')
     audioFile.play();
  }
+  //function that generates the divs in the grid container
+ //and also changes its color when pointer is down
+ //color that is set is based on the color picker's value
 function createDivs(num){
     let totalDivs = num * num; 
     let divSize = 960 / num;  
