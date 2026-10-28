@@ -30,7 +30,6 @@ function createDivs(num){
     for(let i = 0; i < totalDivs; i++){
     const grid = document.createElement("div");
     grid.classList.add("grids");
-     const divChange =  document.querySelectorAll('.grids')
     gridContainer.appendChild(grid)
     grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
     grid.style.width = `${divSize}px`
@@ -47,7 +46,7 @@ function createDivs(num){
     isMouseDown = false;
 });
     grid.addEventListener("click", () => {
-    grid.style.backgroundColor = "#2ecc71";
+    grid.style.backgroundColor = changeColor();
 })
     const clearAll = document.querySelector(".clear-btn");
     clearAll.addEventListener("click", () => {
