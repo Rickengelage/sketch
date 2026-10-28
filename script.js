@@ -1,24 +1,29 @@
+// adds the memorie of the slider to js
 const inputNumber = document.querySelector(".grid-size").value = "16";
+//adds the memorie of the grid container to js
 const gridContainer = document.querySelector(".grid-container");
 createDivs(inputNumber)
 
 console.log(inputNumber)
 
-const pickedColor = document.querySelector(".color-picker").value;
-
-
-console.log(pickedColor)
-
+//generates the grid divs inside the grid container when clicking the resize button
 const resizeButton = document.querySelector(".resize-btn");
 resizeButton.addEventListener("click", () => {
     gridContainer.innerHTML = "";
     resizeBtn()
 })
 
+//function that actually generates the grid divs inside the grid container
 function resizeBtn() {
   let x = document.querySelector(".grid-size").value;
  createDivs(x);
  }
+ function changeColor() {
+     const picker = document.querySelector(".color-picker").value;
+   return picker;
+ }
+
+
 
 
 function createDivs(num){
@@ -28,6 +33,7 @@ function createDivs(num){
     for(let i = 0; i < totalDivs; i++){
     const grid = document.createElement("div");
     grid.classList.add("grids");
+     const divChange =  document.querySelectorAll('.grids')
     gridContainer.appendChild(grid)
     grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
     grid.style.width = `${divSize}px`
@@ -38,10 +44,10 @@ function createDivs(num){
 });
     grid.addEventListener('pointerenter', () => {
     if (isMouseDown) {
-     grid.style.backgroundColor = `${pickedColor}`;
-       
-    }
-    });
+        grid.style.backgroundColor = changeColor();
+ }});
+   
+
     window.addEventListener('pointerup', () => {
     isMouseDown = false;
 });
