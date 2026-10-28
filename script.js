@@ -39,30 +39,36 @@ function createDivs(num){
     grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
     grid.style.width = `${divSize}px`
      grid.style.height = `${divSize}px`
-    let isMouseDown = false;
+    let isMouseDown = false
      window.addEventListener('pointerdown', () => {
     isMouseDown = true;
 });
-    grid.addEventListener('pointerenter', () => {
+    grid.addEventListener('pointerenter', (e) => {
     if (isMouseDown) {
+         grid.releasePointerCapture(e.pointerId);
         grid.style.backgroundColor = changeColor();
         playSound()
         if(clickedOn == true){
          grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";}
      }});
-
-    window.addEventListener('pointerup', () => {
-    isMouseDown = false;
-});
+    grid.addEventListener('pointermove', () => {
+     if(isMouseDown){
+     grid.style.backgroundColor = changeColor();
+        playSound();
+        if(clickedOn === true) {
+            grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+        }
+    }});
     grid.addEventListener("click", () => {
     grid.style.backgroundColor = changeColor();
     playSound()
     if(clickedOn == true){
     grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-    
-
     }
 })
+   window.addEventListener('pointerup', () => {
+    isMouseDown = false;
+});
     const clearAll = document.querySelector(".clear-btn");
     clearAll.addEventListener("click", () => {
     grid.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
